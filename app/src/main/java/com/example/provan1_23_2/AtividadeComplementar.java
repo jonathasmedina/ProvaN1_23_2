@@ -1,6 +1,8 @@
 package com.example.provan1_23_2;
 
-class AtividadeComplementar {
+import java.io.Serializable;
+
+class AtividadeComplementar implements Serializable {
     String nomeEstudante;
     String emailInstitucional;
     String descricaoAtiv;

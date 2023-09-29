@@ -4,27 +4,37 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     Button btTela1, btTela2;
 
+    ArrayList<AtividadeComplementar> atividadeComplementarArrayList = new ArrayList<>();
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+        protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         btTela1  = findViewById(R.id.button);
         btTela2  = findViewById(R.id.button2);
 
+        Intent intent = getIntent();
+        if (intent.getExtras() != null) {
+            atividadeComplementarArrayList = (ArrayList<AtividadeComplementar>) getIntent().getSerializableExtra("array");
+            Log.e("aqui", "tamanho: " + atividadeComplementarArrayList.size());
+        }
 
         btTela1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, MainActivityCadastro.class);
+
                 startActivity(intent);
             }
         });
@@ -33,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, MainActivityConsulta.class);
+                intent.putExtra("arrayPopulado", atividadeComplementarArrayList);
                 startActivity(intent);
             }
         });
