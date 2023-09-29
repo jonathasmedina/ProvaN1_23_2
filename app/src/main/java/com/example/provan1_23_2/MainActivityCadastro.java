@@ -34,10 +34,15 @@ public class MainActivityCadastro extends AppCompatActivity {
 
         spinner = findViewById(R.id.spinnerCategorias);
 
+        Intent intent_ = getIntent();
+        if (intent_.getExtras() != null) {
+            atividadeComplementarArrayList = (ArrayList<AtividadeComplementar>) getIntent().getSerializableExtra("array");
+        }
+
         ArrayList<String> dadosSpinner = new ArrayList<>();
-        dadosSpinner.add("Opção 1");
-        dadosSpinner.add("Opção 2");
-        dadosSpinner.add("Opção 3");
+        dadosSpinner.add("Categoria 1 - Cursos");
+        dadosSpinner.add("Categoria 2 - Projetos");
+        dadosSpinner.add("Categoria 3 - Pesquisas");
 
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<>(
                 this, android.R.layout.simple_spinner_item, dadosSpinner);

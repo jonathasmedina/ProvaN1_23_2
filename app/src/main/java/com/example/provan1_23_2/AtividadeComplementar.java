@@ -59,12 +59,6 @@ class AtividadeComplementar implements Serializable {
 
     @Override
     public String toString() {
-        return "AtividadeComplementar{" +
-                "nomeEstudante='" + nomeEstudante + '\'' +
-                ", emailInstitucional='" + emailInstitucional + '\'' +
-                ", descricaoAtiv='" + descricaoAtiv + '\'' +
-                ", horasPret='" + horasPret + '\'' +
-                ", categoriaAtiv='" + categoriaAtiv + '\'' +
-                '}';
+        return "Estudante: " + nomeEstudante + ".\nE-mail: " + emailInstitucional + ".\nDescrição da atividade: " + descricaoAtiv;
     }
 }

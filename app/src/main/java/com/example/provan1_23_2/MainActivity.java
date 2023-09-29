@@ -27,14 +27,13 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = getIntent();
         if (intent.getExtras() != null) {
             atividadeComplementarArrayList = (ArrayList<AtividadeComplementar>) getIntent().getSerializableExtra("array");
-            Log.e("aqui", "tamanho: " + atividadeComplementarArrayList.size());
         }
 
         btTela1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, MainActivityCadastro.class);
-
+                intent.putExtra("array", atividadeComplementarArrayList);
                 startActivity(intent);
             }
         });
@@ -43,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, MainActivityConsulta.class);
-                intent.putExtra("arrayPopulado", atividadeComplementarArrayList);
+                intent.putExtra("array", atividadeComplementarArrayList);
                 startActivity(intent);
             }
         });
